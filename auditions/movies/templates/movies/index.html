@@ -1,0 +1,80 @@
+{% extends "movies/base.html" %}
+{% block body %}
+<div class="container">
+  <div class="page-header">
+    <h2>Movies</h2>
+  </div>
+</div>
+
+{% if all_movies %}
+<div class="container" id="movieContainer">
+  <div class="row">
+      {% for movie in all_movies %}
+          <div class="col-xs-18 col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src="http://placehold.it/500x250/EEE">
+              <video width="320" height="240" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+              </video>
+              <div class="caption">
+                <h4><a href="{% url 'movies:detail' movie.movie_id %}"> {{ movie.movie_title }} </a></h4>
+                <p>{{ movie.movie_description }}</p>
+                <a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a> <a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+  </div><!--/row-->
+</div><!--/container -->
+<!----------->
+<!--<hr>-->
+<!--<div class="container">-->
+      <!--<div class="row">-->
+
+        <!--<div class="col-xs-18 col-sm-6 col-md-3">-->
+          <!--<div class="thumbnail">-->
+            <!--<img src="http://placehold.it/500x250/EEE">-->
+              <!--<div class="caption">-->
+                <!--<h4>Thumbnail label</h4>-->
+                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>-->
+                <!--<a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a> <a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="col-xs-18 col-sm-6 col-md-3">-->
+          <!--<div class="thumbnail">-->
+            <!--<img src="http://placehold.it/500x250/EEE">-->
+              <!--<div class="caption">-->
+                <!--<h4>Thumbnail label</h4>-->
+                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>-->
+                <!--<a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a> <a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="col-xs-18 col-sm-6 col-md-3">-->
+          <!--<div class="thumbnail">-->
+            <!--<img src="http://placehold.it/500x250/EEE">-->
+              <!--<div class="caption">-->
+                <!--<h4>Thumbnail label</h4>-->
+                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>-->
+                <!--<a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a> <a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+          <!---->
+        <!---->
+  <!--</div>&lt;!&ndash;/row&ndash;&gt;-->
+<!--</div>&lt;!&ndash;/container &ndash;&gt;-->
+<!----------->
+
+
+
+    {% else %}
+        <h3> Upload your first movie!</h3>
+        [Add link to upload page]
+    {% endif %}
+{% endblock %}

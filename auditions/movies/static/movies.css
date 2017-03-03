@@ -1,0 +1,16 @@
+body {
+    background: white url("media/imgs/background.jpg");
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-brand {
+    font-family: 'Mr Dafoe', cursive;
+}
+
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}

@@ -1,0 +1,11 @@
+{% extends "movies/base.html" %}
+{% block body %}
+    <ul>
+        {% if movie %}
+            <li> <a href="/movies/{{ movie.movie_id }}"> {{ movie.movie_title }} detail </a></li>
+        {% else %}
+        <h3> Movie not found</h3>
+        [Add link to upload page]
+        {% endif %}
+    </ul>
+{% endblock %}
