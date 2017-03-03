@@ -28,7 +28,8 @@
 
 
 from django.views import generic
-from .models import Movie
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Movie, CreateMovieForm
 
 
 class IndexView(generic.ListView):
@@ -44,3 +45,7 @@ class DetailView(generic.DetailView):
     model = Movie
     def get_queryset(self):
         return Movie.objects.all()
+
+class MovieCreateView(CreateView):
+    model = Movie
+    form_class = CreateMovieForm

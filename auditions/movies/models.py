@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.core.urlresolvers import reverse
+from django.forms import ModelForm
 import uuid
 
 
@@ -18,7 +20,15 @@ class Movie(models.Model):
     #movie_link = models.TextField()
     #movie_thumbnail = models.TextField(default="")
 
+    def get_absolute_url(self):
+        return reverse("movies:detail", kwargs={"pk": self.pk})
+
     def __str__(self):
         return self.movie_title
+
+class CreateMovieForm(ModelForm):
+    class Meta:
+        model = Movie
+        fields = ["movie_title", "movie_genre", "movie_description"]
 
 
