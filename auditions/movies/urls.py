@@ -24,5 +24,8 @@ urlpatterns = [
     url(r"/update/(?P<pk>[^/]+)/$", views.MovieUpdateView.as_view(), name="movie-update"),
 
     # /delete/<id>/
-    url(r"/delete/(?P<pk>[^/]+)$", views.MovieDeleteView.as_view(), name="movie-delete")
+    url(r"/delete/(?P<pk>[^/]+)$", views.MovieDeleteView.as_view(), name="movie-delete"),
+
+    # /play/<id>/
+    url(r"/play/(?P<pk>[^/]+)$", views.MoviePlayView.as_view(), name="movie-play")
 ]

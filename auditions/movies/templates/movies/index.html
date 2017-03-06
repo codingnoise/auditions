@@ -13,13 +13,10 @@
       {% for movie in all_movies %}
           <div class="col-xs-18 col-sm-6 col-md-3">
           <div class="thumbnail">
-              <img src="{% static 'media/imgs/playbutton.png' %}">
-            <!--<img src="http://placehold.it/500x250/EEE">-->
-              <!--<video width="320" height="240" controls>-->
-                  <!--<source src="{{ movie.movie_url.url }}" type="video/mp4">-->
-                  <!--<source src="movie.ogg" type="video/ogg">-->
-                  <!--Your browser does not support the video tag.-->
-              <!--</video>-->
+              <a href="{% url 'movies:movie-play' movie.movie_id %}">
+                  <img src="{% static 'media/imgs/playbutton.png' %}">
+              </a>
+
               <div class="caption">
                   <h4><a href="{% url 'movies:detail' movie.movie_id %}"> {{ movie.movie_title }} </a></h4>
                   <p>{{ movie.movie_description }}</p>

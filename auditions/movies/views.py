@@ -36,6 +36,7 @@ from .models import Movie, CreateMovieForm
 class IndexView(generic.ListView):
     template_name = "movies/index.html"
     context_object_name = "all_movies"
+
     def get_queryset(self):
         return Movie.objects.all()
 
@@ -44,8 +45,18 @@ class DetailView(generic.DetailView):
     template_name = "movies/detail.html"
 
     model = Movie
+
     def get_queryset(self):
         return Movie.objects.all()
+
+
+class MoviePlayView(generic.DetailView):
+    template_name = "movies/movie_player.html"
+    model = Movie
+
+    def get_queryset(self):
+        return Movie.objects.all()
+
 
 class MovieCreateView(CreateView):
     model = Movie

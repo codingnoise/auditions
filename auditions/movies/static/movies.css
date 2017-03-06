@@ -10,7 +10,9 @@ body {
     font-family: 'Mr Dafoe', cursive;
 }
 
-video {
-  width: 100%    !important;
-  height: auto   !important;
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
 }
