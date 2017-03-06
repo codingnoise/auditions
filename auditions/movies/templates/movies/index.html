@@ -7,21 +7,44 @@
 </div>
 
 {% if all_movies %}
+{% load staticfiles %}
 <div class="container" id="movieContainer">
   <div class="row">
       {% for movie in all_movies %}
           <div class="col-xs-18 col-sm-6 col-md-3">
           <div class="thumbnail">
-            <img src="http://placehold.it/500x250/EEE">
-              <video width="320" height="240" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                  <source src="movie.ogg" type="video/ogg">
-                  Your browser does not support the video tag.
-              </video>
+              <img src="{% static 'media/imgs/playbutton.png' %}">
+            <!--<img src="http://placehold.it/500x250/EEE">-->
+              <!--<video width="320" height="240" controls>-->
+                  <!--<source src="{{ movie.movie_url.url }}" type="video/mp4">-->
+                  <!--<source src="movie.ogg" type="video/ogg">-->
+                  <!--Your browser does not support the video tag.-->
+              <!--</video>-->
               <div class="caption">
-                <h4><a href="{% url 'movies:detail' movie.movie_id %}"> {{ movie.movie_title }} </a></h4>
-                <p>{{ movie.movie_description }}</p>
-                <a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a> <a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a>
+                  <h4><a href="{% url 'movies:detail' movie.movie_id %}"> {{ movie.movie_title }} </a></h4>
+                  <p>{{ movie.movie_description }}</p>
+                  <a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a>
+
+                  <!---Update Button---->
+                  <!--<a href="#" class="btn btn-default btn-xs" role="button">Delete</a>-->
+                  <form action="{% url 'movies:movie-update' movie.movie_id %}" method="post" style="display: inline;">
+                      {% csrf_token %}
+                      <input type="hidden" name="movie_id" value="{{ movie.movie_id }}"/>
+                      <button type="submit" class="btn btn-default btn-sm">
+                          <span class="glyphicon glyphicon-pencil"></span>
+                      </button>
+                  </form>
+
+
+                  <!---Delete Button---->
+                  <!--<a href="#" class="btn btn-default btn-xs" role="button">Delete</a>-->
+                  <form action="{% url 'movies:movie-delete' movie.movie_id %}" method="post" style="display: inline;">
+                      {% csrf_token %}
+                      <input type="hidden" name="movie_id" value="{{ movie.movie_id }}"/>
+                      <button type="submit" class="btn btn-default btn-sm">
+                          <span class="glyphicon glyphicon-trash"></span>
+                      </button>
+                  </form>
             </div>
           </div>
         </div>

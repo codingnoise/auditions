@@ -29,6 +29,7 @@
 
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 from .models import Movie, CreateMovieForm
 
 
@@ -49,3 +50,13 @@ class DetailView(generic.DetailView):
 class MovieCreateView(CreateView):
     model = Movie
     form_class = CreateMovieForm
+
+
+class MovieUpdateView(UpdateView):
+    model = Movie
+    form_class = CreateMovieForm
+
+
+class MovieDeleteView(DeleteView):
+    model = Movie
+    success_url = reverse_lazy("movies:index")

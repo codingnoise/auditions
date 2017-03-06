@@ -1,3 +1,4 @@
 *.pyc
 *.idea
-
+auditions/movies/migrations/*
+auditions/media/*
