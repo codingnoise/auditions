@@ -1,19 +1,18 @@
 {% extends "movies/base.html" %}
 {% block body %}
-    <div class="container" id="movieContainer">
+    <div class="container">
         <div class="row">
-            <div class="col-xs-18 col-sm-6 col-md-3">
-                <div class="videoWrapper">
-                    {% if movie %}
-                        <video width="560" height="349" controls autoplay>
-                        <source src="{{ movie.movie_url.url }}" type="video/mp4">
-                        <source src="movie.ogg" type="video/ogg">
-                        Your browser does not support the video tag.
-                        </video>
-                    {% else %}
-                        <h3> Movie not found</h3>
-                    {% endif %}
-                </div>
+            <div class="videoWrapper">
+                {% load staticfiles %}
+                {% if movie %}
+                    <video width="560" height="349" id="videoPlayer" controls>
+                    <source src="{{ movie.movie_url.url }}" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                    </video>
+                {% else %}
+                    <h3> Movie not found</h3>
+                {% endif %}
             </div>
         </div>
     </div>
