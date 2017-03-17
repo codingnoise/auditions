@@ -5,6 +5,9 @@
     <title>Auditions</title>
     <!-- Static files -->
     {% load staticfiles %}
+    <!-- First include jquery js -->
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">-->
     <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe" rel="stylesheet">
@@ -47,7 +50,14 @@
                         <li class="">
                             <a href="{% url 'movies:movie-upload' %}">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
-                                Add Movie
+                                Add Picture
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
+                                Add Contest
                             </a>
                         </li>
 

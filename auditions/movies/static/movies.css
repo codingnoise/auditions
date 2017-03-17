@@ -8,9 +8,79 @@ body {
 
 .navbar-brand {
     font-family: 'Mr Dafoe', cursive;
-    background: "#DCD0C0";
 }
 
 #videoPlayer {
     background-color: black;
+}
+
+#movieContainer #gallery_card {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #fff;
+    width: 340px;
+    height: 330px;
+    margin: 15px 15px;
+}
+
+#movieContainer #gallery_card .top {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+    background-color: #b9c1c7;
+    border-radius: 3px 3px 0 0;
+    border: 1px solid #eeeff2;
+    border-bottom: none;
+    border-top: none;
+}
+
+#movieContainer #gallery_card .bottom {
+    width: 100%;
+    height: 90px;
+    text-align: left;
+    padding-top: 15px;
+    border: 1px solid #eeeff2;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+}
+
+#movieContainer #gallery_card .bottom .nameWrapper {
+    display: inline-block;
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+}
+
+#movieContainer #gallery_card .bottom .name {
+    color: #525558;
+    cursor: pointer;
+    position: relative;
+    z-index: 150;
+    max-width: -webkit-calc(100% - 20px);
+    max-width: -moz-calc(100% - 20px);
+    max-width: calc(100% - 20px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 1.4em;
+}
+
+.description {
+    color: #b9c1c7;
+    line-height: 1.4em;
+    font-size: 14px;
+    display: block;
+    margin: 0 auto 8px auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: -webkit-calc(100% - 20px);
+    max-width: -moz-calc(100% - 20px);
+    max-width: calc(100% - 20px);
+    text-align: center;
 }

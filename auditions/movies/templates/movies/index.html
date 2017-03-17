@@ -9,92 +9,36 @@
 {% if all_movies %}
 {% load staticfiles %}
 <div class="container" id="movieContainer">
-  <div class="row">
       {% for movie in all_movies %}
-          <div class="col-xs-18 col-sm-6 col-md-3">
-          <div class="thumbnail">
-              <a href="{% url 'movies:movie-play' movie.movie_id %}">
-                  <img src="{% static 'media/imgs/playbutton.png' %}">
-              </a>
-
-              <div class="caption">
-                  <h4><a href="{% url 'movies:detail' movie.movie_id %}"> {{ movie.movie_title }} </a></h4>
-                  <p>{{ movie.movie_description }}</p>
-                  <a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a>
-
-                  <!---Update Button---->
-                  <!--<a href="#" class="btn btn-default btn-xs" role="button">Delete</a>-->
-                  <form action="{% url 'movies:movie-update' movie.movie_id %}" method="post" style="display: inline;">
-                      {% csrf_token %}
-                      <input type="hidden" name="movie_id" value="{{ movie.movie_id }}"/>
-                      <button type="submit" class="btn btn-default btn-sm">
-                          <span class="glyphicon glyphicon-pencil"></span>
-                      </button>
-                  </form>
-
-
-                  <!---Delete Button---->
-                  <!--<a href="#" class="btn btn-default btn-xs" role="button">Delete</a>-->
-                  <form action="{% url 'movies:movie-delete' movie.movie_id %}" method="post" style="display: inline;">
-                      {% csrf_token %}
-                      <input type="hidden" name="movie_id" value="{{ movie.movie_id }}"/>
-                      <button type="submit" class="btn btn-default btn-sm">
-                          <span class="glyphicon glyphicon-trash"></span>
-                      </button>
-                  </form>
-            </div>
-          </div>
+          <div class="col-xs-18 col-sm-6 col-md-4" id="gallery_card">
+              <div class="top" style="background-image: url({% static 'media/imgs/muir.jpg' %});">
+              </div>
+              <div class="bottom">
+                  <div class="nameWrapper">
+                      <a class="name" href="#">Contest name</a>
+                  </div>
+                  <span class="description">
+                      A witty Description
+                  </span>
+              </div>
         </div>
       {% endfor %}
-  </div><!--/row-->
 </div><!--/container -->
-<!----------->
-<!--<hr>-->
-<!--<div class="container">-->
-      <!--<div class="row">-->
-
-        <!--<div class="col-xs-18 col-sm-6 col-md-3">-->
-          <!--<div class="thumbnail">-->
-            <!--<img src="http://placehold.it/500x250/EEE">-->
-              <!--<div class="caption">-->
-                <!--<h4>Thumbnail label</h4>-->
-                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>-->
-                <!--<a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a> <a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="col-xs-18 col-sm-6 col-md-3">-->
-          <!--<div class="thumbnail">-->
-            <!--<img src="http://placehold.it/500x250/EEE">-->
-              <!--<div class="caption">-->
-                <!--<h4>Thumbnail label</h4>-->
-                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>-->
-                <!--<a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a> <a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="col-xs-18 col-sm-6 col-md-3">-->
-          <!--<div class="thumbnail">-->
-            <!--<img src="http://placehold.it/500x250/EEE">-->
-              <!--<div class="caption">-->
-                <!--<h4>Thumbnail label</h4>-->
-                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>-->
-                <!--<a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a> <a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-          <!---->
-        <!---->
-  <!--</div>&lt;!&ndash;/row&ndash;&gt;-->
-<!--</div>&lt;!&ndash;/container &ndash;&gt;-->
-<!----------->
-
-
-
-    {% else %}
-        <h3> Upload your first movie!</h3>
+{% else %}
+    <h3> Upload your first movie!</h3>
         [Add link to upload page]
-    {% endif %}
+{% endif %}
 {% endblock %}
+
+
+
+
+<!--<div class="thumbnail" id="thumbnail">-->
+  <!--&lt;!&ndash;&#45;&#45;<a href="{% url 'movies:movie-play' movie.movie_id %}">&#45;&#45;&ndash;&gt;-->
+      <!--<img src="{% static 'media/imgs/playbutton.png' %}">-->
+  <!--&lt;!&ndash;&#45;&#45;</a>&#45;&#45;&ndash;&gt;-->
+  <!--<div class="caption">-->
+      <!--<h4><a href="{% url 'movies:detail' movie.movie_id %}"> {{ movie.movie_title }} </a></h4>-->
+      <!--<p>{{ movie.movie_description }}</p>-->
+<!--</div>-->
+<!--</div>-->
